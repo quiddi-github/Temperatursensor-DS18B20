@@ -12,8 +12,8 @@ DallasTemperature sensors(&oneWire);
 unsigned long myChannelNumber = 1996100;         //ThingSpeak Channel ID
 const char * myWriteAPIKey = "5ODRXQS14RDPWXGF";
 
-const char* ssid = "Newton";                    // W-Lan Passwörter
-const char* password = "3r15t31nE5el!";
+const char* ssid = "Nsdf";                    // W-Lan Passwörter
+const char* password = "sdfsdf";
 
 WiFiClient  client;
 
