@@ -10,10 +10,10 @@ OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 
 unsigned long myChannelNumber = 1996100;         //ThingSpeak Channel ID
-const char * myWriteAPIKey = "5ODRXQS14RDPWXGF";
+const char * myWriteAPIKey = "gkhjhjkF";
 
-const char* ssid = "Nsdf";                    // W-Lan Passwörter
-const char* password = "sdfsdf";
+const char* ssid = "hgjghj";                    // W-Lan Passwörter
+const char* password = "jkhjkhjk";
 
 WiFiClient  client;
 
@@ -25,6 +25,7 @@ unsigned long LetzterSendelauf=0;
 unsigned long LetzterLaufLED=0;
 unsigned long LetzterReboot=0;
 bool LetzterSendelaufbool = false;
+bool Timer2h = false;
 
 void(* resetFunc) (void) = 0; //0-Funktion Pointer für Reboot
 
@@ -82,10 +83,21 @@ LetzterSendelauf = AktuelleZeit;
  if (AktuelleZeit > (LetzterReboot + 7200000)) // alle 2h einen Reboot machen
 {
 LetzterSendelaufbool = false;
+Timer2h = false;
 resetFunc(); // Reboot
 };
 }
 
+if ((!Timer2h) && (AktuelleZeit > (LetzterSendelauf + 60000))){
+  //delay(5000);
+ThingSpeak.writeField(myChannelNumber, 2, sensors.getTempCByIndex(0) , myWriteAPIKey); // alle 2h in Field 2 einen Datenpunkt speichern
+ Serial.println("Temperatur 2 gesendet an TS   " + String(AktuelleZeit));
+Timer2h = true;
+}
+
+if (AktuelleZeit > (LetzterSendelauf + 1800000)) {
+  LetzterSendelaufbool = false;
+}
 // Ende: Alle 6 Minuten die Temperatur an ThingSpeak senden
 
 

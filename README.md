@@ -12,4 +12,6 @@ Stand: 29.12.2022\
  *  W-Lan Password und SSID im Code eingeben.\
  *  ThingSpeak API Daten im Code eingeben.\
  *  Der Code sendet alle 6 Minuten an ThingSpeak und alle 6 Sekunden über den seriellen Monitor (115200 Baud) die Daten.\
- *  ThingSpeak Channel ID: 1996100, uzo47339@cdfaq.com
+ *  ThingSpeak Channel ID: 1996100, uzo47339@cdfaq.com\
+ \
+ 7.1.2023: Alle 30 Minuten wird in Field 1 gespeichert, alle 2h in Field 2.
