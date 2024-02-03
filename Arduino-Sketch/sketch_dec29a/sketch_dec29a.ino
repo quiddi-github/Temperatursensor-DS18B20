@@ -1,19 +1,42 @@
+//Stand 04.02.2024
+//
+// Code für AZ-Delivery Board mit ESP32-WROOM-32
+//
+// Arduino IDE v1
+// Folgenden Link zur Boardverwaltung hinzufügen:
+// https://dl.espressif.com/dl/package_esp32_index.json
+// zu finden in der Arduino IDE v1 in Datei/ Voreinstellungen/ Einstellungen/ Zusätzliche Boardverwalter-URLs:
+// In der Arduino IDE v1 über Werkzeuge/ Board/ Boardverwalter das Paket "esp32" von Espressif Systems installieren
+// Als Board ESP32 Arduino/ ESP32 Dev Module auswählen
+//
+//
+// Hardware
+// Temperatursensor DS18B20 ist an Pin GPIO4 angeschlossen.
+// Betriebsspannung des Sensors ist 5V und zwischen Data und +5V muss ein 4,7k Widerstand angeschlossen sein.
+//
+// ! ! ! Zum Schreiben des Programmes bitte den "Boot" Taster beim Übertragen drücken ! ! !
+// Arduino wurde durch einen AZ-Delivery Board mit ESP32-WROOM-32 ersetzt.
 
-#define LED    D4                               // LED auf D4 am Arduino, Blinkkontrolle
+
+
+
+
+#define LED    3                               // LED auf D1 am Arduino, Blinkkontrolle
 #include <ThingSpeak.h>                         // ThingSpeak Bibliothek einbinden
-#include <ESP8266WiFi.h>                        // W-Lan Bibliothek einbinden
+#include "WiFi.h"
+//#include <ESP8266WiFi.h>                        // W-Lan Bibliothek einbinden
 #include <OneWire.h>                            // BUS-Bibliothek für Sensor einbinden
 #include <DallasTemperature.h>                  // Dallas Sensor Bibliothek einbinden
 
-#define ONE_WIRE_BUS 4                          // Temperatursensor an GPIO4 bzw. Pin D2
+#define ONE_WIRE_BUS 4                          // Temperatursensor an GPIO4 (war alt bzw. Pin D2)
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 
 unsigned long myChannelNumber = 1996100;         //ThingSpeak Channel ID
-const char * myWriteAPIKey = "gkhjhjkF";
+const char * myWriteAPIKey = "5ODRXQS14RDPWXGF";
 
-const char* ssid = "hgjghj";                    // W-Lan Passwörter
-const char* password = "jkhjkhjk";
+const char* ssid = "jksfdl";                    // W-Lan Passwörter
+const char* password = "jksdfl";
 
 WiFiClient  client;
 
@@ -115,4 +138,3 @@ if (AktuelleZeit > (LetzterLaufLED+2000)) {
 
 
 }
-

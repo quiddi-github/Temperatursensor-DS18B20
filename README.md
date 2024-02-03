@@ -1,5 +1,9 @@
 # Temperatursensor DS18B20
 
+Update 4.2.2024\
+\
+Es wurde ein AZ-Delivery Board mit ESP32-WROOM-32 installiert, da die alte Hardware kaputt gegangen ist.\
+\
 Stand: 29.12.2022\
 \
  *  Als Temperatursensor wird ein DS18B20 verwendet.\
